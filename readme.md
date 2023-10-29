@@ -1,5 +1,5 @@
 <a name="TOP"></a>
-# ErcfBearingSpool
+# ErcpBearingSpool
 This is a bearing version of the filament spool holder of the Enraged Carrot Feeder Patch (ERCP) buffer.
 
 The original design can be found at [ercf](https://github.com/EtteGit/EnragedRabbitProject.git).

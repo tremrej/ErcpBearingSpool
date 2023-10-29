@@ -1,5 +1,5 @@
 //
-// ercfBearingSpool Copyright Rejean Tremblay 2023
+// ercpBearingSpool Copyright Rejean Tremblay 2023
 //
 // This project use the OpenSCAD library NopSCADlib for the documentation.
 //
