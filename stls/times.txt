@@ -1,0 +1,9 @@
+{
+    "nut_M8.stl": 89.248,
+    "bearingSH_M8.stl": 43.496,
+    "bearingSH_5_16.stl": 41.459,
+    "roller.stl": 10.433,
+    "nut_5_16.stl": 81.395,
+    "spacer3mm.stl": 0.587,
+    "spacer4mm.stl": 0.596
+}

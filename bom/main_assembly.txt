@@ -1,0 +1,14 @@
+main_assembly:
+Vitamins:
+  1 Threaded rod M8 x 95mm
+
+Printed:
+  1 bearingSH_5_16.stl
+  1 bearingSH_M8.stl
+  1 nut_5_16.stl
+  1 nut_M8.stl
+  1 spacer3mm.stl
+  1 spacer4mm.stl
+
+Assemblies:
+  1 roll_assembly

@@ -1,0 +1,6 @@
+roll_assembly:
+Vitamins:
+  2 Ball bearing 608-2RS 8mm x 22mm x 7mm
+
+Printed:
+  1 roller.stl

@@ -1,0 +1,7 @@
+{
+    "assemblies/roll_assembled.png": 1.363,
+    "assemblies/roll_assembly.png": 2.25,
+    "assemblies/main_assembled.png": 285.521,
+    "assemblies/main_assembly.png": 298.137,
+    "readme.html": 0.166
+}
