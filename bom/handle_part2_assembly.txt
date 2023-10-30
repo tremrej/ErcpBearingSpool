@@ -1,0 +1,9 @@
+handle_part2_assembly:
+Vitamins:
+  1 Screw M3 cap x 10mm
+
+Printed:
+  1 bearingSH_M8.stl
+
+Assemblies:
+  1 handle_part1_assembly

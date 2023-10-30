@@ -1,0 +1,3 @@
+handle_part1_assembly:
+Vitamins:
+  1 Heatfit insert M3 x 4mm
