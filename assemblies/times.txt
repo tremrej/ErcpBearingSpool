@@ -1,7 +1,13 @@
 {
-    "assemblies/roll_assembled.png": 1.363,
-    "assemblies/roll_assembly.png": 2.25,
-    "assemblies/main_assembled.png": 285.521,
-    "assemblies/main_assembly.png": 298.137,
-    "readme.html": 0.166
+    "assemblies/optional_mainBody_assembled.png": 3.122,
+    "assemblies/optional_mainBody_assembly.png": 1.314,
+    "assemblies/handle_part1_assembled.png": 1.596,
+    "assemblies/handle_part1_assembly.png": 2.088,
+    "assemblies/handle_part2_assembled.png": 73.732,
+    "assemblies/handle_part2_assembly.png": 72.496,
+    "assemblies/roll_assembled.png": 1.484,
+    "assemblies/roll_assembly.png": 2.387,
+    "assemblies/main_assembled.png": 350.902,
+    "assemblies/main_assembly.png": 355.441,
+    "readme.html": 0.127
 }

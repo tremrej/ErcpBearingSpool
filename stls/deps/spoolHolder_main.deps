@@ -1,4 +1,5 @@
-stls/spacer4mm.stl: \
+stls/mainBodyNoShoulder.stl: \
+	/home/rejeantremblay/Documents/github/EnragedRabbitProject/Carrot_Patch/STLs/Main_Body.stl \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/fillet.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/maths.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/washer.scad \
@@ -16,6 +17,9 @@ stls/spacer4mm.stl: \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/global_defs.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/thread.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/rod.scad \
+	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/rounded_cylinder.scad \
+	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/insert.scad \
+	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/sweep.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/core/bom.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/ball_bearing.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/ball_bearings.scad \
@@ -25,7 +29,4 @@ stls/spacer4mm.stl: \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/core/rounded_rectangle.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/core/teardrops.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/screw.scad \
-	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/core/clip.scad \
-	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/sweep.scad \
-	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/rounded_cylinder.scad \
-	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/insert.scad
+	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/core/clip.scad

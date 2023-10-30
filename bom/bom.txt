@@ -1,20 +1,39 @@
 Vitamins:
- M  R
- a  o
- i  l
- n  l
-  | 2|  2 Ball bearing 608-2RS 8mm x 22mm x 7mm
- 1|  |  1 Threaded rod M8 x 95mm
+          O   
+          p   
+          t   
+          i   
+          o   
+ H  H     n   
+ a  a     a   
+ n  n     l   
+ d  d         
+ l  l     m   
+ e  e     a   
+          i   
+ p  p     n   
+ a  a  M  b  R
+ r  r  a  o  o
+ t  t  i  d  l
+ 1  2  n  y  l
+  |  |  |  | 2|  2 Ball bearing 608-2RS 8mm x 22mm x 7mm
+ 1|  |  |  |  |  1 Heatfit insert M3 x 4mm
+  | 1|  |  |  |  1 Screw M3 cap x 10mm
+  |  | 1|  |  |  1 Threaded rod M8 x 88mm
 
 Printed:
- 1|  |  1 bearingSH_5_16.stl
- 1|  |  1 bearingSH_M8.stl
- 1|  |  1 nut_5_16.stl
- 1|  |  1 nut_M8.stl
-  | 1|  1 roller.stl
- 1|  |  1 spacer3mm.stl
- 1|  |  1 spacer4mm.stl
+  |  | 1|  |  |  1 bearingSH_5_16.stl
+  | 1|  |  |  |  1 bearingSH_M8.stl
+  |  |  | 1|  |  1 mainBodyNoShoulder.stl
+  |  | 1|  |  |  1 nut_5_16.stl
+  |  | 1|  |  |  1 nut_M8.stl
+  |  |  |  | 1|  1 roller.stl
+  |  | 1|  |  |  1 spacer1mm.stl
+  |  | 1|  |  |  1 spacer3mm.stl
 
 Assemblies:
+  1 handle_part1_assembly
+  1 handle_part2_assembly
   1 main_assembly
+  1 optional_mainBody_assembly
   1 roll_assembly

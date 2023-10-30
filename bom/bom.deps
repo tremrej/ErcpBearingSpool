@@ -1,6 +1,8 @@
 openscad.echo: \
+	/home/rejeantremblay/Documents/github/EnragedRabbitProject/Carrot_Patch/STLs/Main_Body.stl \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/fillet.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/maths.scad \
+	/home/rejeantremblay/Documents/github/EnragedRabbitProject/Carrot_Patch/STLs/Handles/[a]_Handle_0.stl \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/washer.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/nut.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/tube.scad \

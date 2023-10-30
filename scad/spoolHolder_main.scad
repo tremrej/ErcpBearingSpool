@@ -13,9 +13,9 @@
 //! It remove lots of friction compare to the original one (PTFE version).
 //! I'm getting less failure rate with the bearing version.
 //!
-//! It support filament spool up to 80 mm wide.
+//! It supports filament spool up to 80 mm wide.
 //!
-//! It uses two 608 bearing plus 95 mm of thread rod. That threaded rod could be M8 (metric) or 5/16" (imperial).
+//! It uses two 608 bearings plus a 88 mm of threaded rod. That threaded rod could be M8 (metric) or 5/16" (imperial).
 //! I provide the STL for both version.
 //!
 //! By the way, the term "vitamin" simply mean non printer part. Apparently the origin comes from reprap [reprap](https://reprap.org/wiki/Category:Vitamin). 
@@ -32,15 +32,17 @@ include <NopSCADlib/core.scad>
 use <NopSCADlib/utils/tube.scad>
 use <NopSCADlib/utils/thread.scad>
 use <NopSCADlib/vitamins/rod.scad>
+use <NopSCADlib/vitamins/insert.scad>
 include <NopSCADlib/vitamins/ball_bearings.scad>  // bb_width()
 use <NopSCADlib/vitamins/ball_bearings.scad>
-$fn = 180;
+$fn = 180;     // Uncomment to increase quality of stl
 
 showSpoolHolder = false;
 showSpoolRoller = false;
 showSpoolOriginal = false;
 showSpacer        = false;
 showVisse         = false;
+showMainBody      = false;
 showttt = false;
 showAssembly = true;
 
@@ -75,7 +77,8 @@ module roundedCube(size, r, sidesonly, center) {
 
 module bearingSH(metric=true)
 {
-    translate([-10,0,-10])
+    el = 5;
+    translate([-10-el,0,-10])
     union()
     {
         difference()
@@ -93,18 +96,19 @@ module bearingSH(metric=true)
                     // Cut the ptfe spool arm
                     translate([0,-30,0]) cube([300, 50,50]);
                     
-                    // Cut the supports
+                    // Cut the supports wher the handle goes.
                     if (!show_supports())
                     {
                         translate([-8,-5/2-5.5,22.7]) cube([300, 5,11]);
                         translate([-8,-5/2+5.5,22.7]) cube([300, 5,11]);
                     }
                 }
-                color("red") translate([0,0,10]) rotate([0,90,0]) cylinder(h=10,r=11);
+                // Cylinder for the threaded rod.
+                color("red") translate([0,0,10]) rotate([0,90,0]) cylinder(h=10+el,r=11);
                 //color("blue") translate([0,-10/2,0]) cube([10,10,5]);
             }
             // Hole for threaded rod
-            color("red") translate([-3,0,10]) rotate([0,90,0]) cylinder(h=40,r=5.0);
+            color("red") translate([-0,0,10]) rotate([0,89,0]) cylinder(h=40,r=5.0);
             // Flat bottom
             translate([0,0,-10]) cube([100,100,20],center=true);
         }
@@ -115,7 +119,7 @@ module bearingSH(metric=true)
             echo ("nut M8");
             d = 8 + 0.3;
             pitch = metric_coarse_pitch(d);
-            translate([10/2,0,10]) rotate([0,90,0]) threadFemale(d,pitch,10);   // 10 mm long
+            translate([(10+el)/2,0,10]) rotate([0,89,0]) threadFemale(d,pitch,10+el);   // 10 mm long
         }
         else
         {
@@ -123,7 +127,7 @@ module bearingSH(metric=true)
             echo ("nut 5/16");
             d = inch(5/16) + 0.3;
             pitch = inch(1/18);
-            translate([10/2,0,10]) rotate([0,90,0]) threadFemale(d,pitch,10);   // 10 mm long
+            translate([(10+el)/2,0,10]) rotate([0,89,0]) threadFemale(d,pitch,10+el);   // 10 mm long
         }
     }
 }
@@ -138,7 +142,7 @@ module roller_stl()
     od  = 46;
     odo = 50;
     rlo = 84+4+4;
-    tol = 0.4;
+    tol = 0.3;
     difference()
     {
         union()
@@ -149,15 +153,15 @@ module roller_stl()
             translate([0,0,rlo-4]) cylinder(h=4,r=(odo)/2);
             translate([0,0,rlo-4-2]) cylinder(h=2,r2=(odo)/2, r1=od/2);
         }
-    // epaule bearing bas
-    translate([0,0,-0.01]) cylinder(h=7+5,r=(22+tol)/2);
-    translate([0,0,-.01]) cylinder(h=5,r=24/2);
-    //Epaule bearing haut
-    translate([0,0,65]) cylinder(h=50,r=(22+tol)/2);
-    translate([0,0,65+7]) cylinder(h=50,r=(34+tol)/2);
-    //translate([0,0,80+7+0.01]) cylinder(h=11,r2=(44+tol)/2, r1=21/2);
-    // though
-    translate([0,0,0]) cylinder(h=200,r=(21)/2);
+
+        // epaule bearing bas
+        translate([0,0,-0.01]) cylinder(h=7+4+11,r=(22+tol)/2);
+        translate([0,0,-.01]) cylinder(h=4+11,r2=24/2,r1=45/2);
+        //Epaule bearing haut
+        translate([0,0,65]) cylinder(h=50,r=(22+tol)/2);
+        translate([0,0,65+7]) cylinder(h=50,r=(34+tol)/2);
+        // through
+        translate([0,0,0]) cylinder(h=200,r=(21)/2);
     }
 }
 
@@ -221,21 +225,41 @@ module bb_608()
     translate([bb_width(BB608)/2,0,0]) rotate([0,90,0]) ball_bearing(BB608);
 }
 
+module spacer1mm_stl() { stl("spacer1mm"); spacer(1); }
+module spacer2mm_stl() { stl("spacer1mm"); spacer(2); }
 module spacer3mm_stl() { stl("spacer3mm"); spacer(3); }
 module spacer4mm_stl() { stl("spacer4mm"); spacer(4); }
 
 module threadRod(length=80)
 {
     // Make it flush to the x axix origin.
-    translate([length/2,0,0]) rotate([0,90,0]) studding(8, 95);
+    translate([length/2,0,0]) rotate([0,90,0]) studding(8, length);
 
+}
+
+module mainBodyNoShoulder_stl()
+{
+    stl("mainBodyNoShoulder");
+    difference()
+    {
+        translate([0,0,9]) import ("/home/rejeantremblay/Documents/github/EnragedRabbitProject/Carrot_Patch/STLs/Main_Body.stl");
+        if (!show_supports())
+        {
+            color("grey") translate([20/2,0,0]) cube ([20,100,100], center=true);
+        }
+    }
+}
+
+module handle()
+{
+    translate([+1.9,6.5,-5.5]) rotate([0,-90,0]) import ("/home/rejeantremblay/Documents/github/EnragedRabbitProject/Carrot_Patch/STLs/Handles/[a]_Handle_0.stl");
 }
 
 
 
 if (showSpoolHolder)
 {
-    bearingSH();
+    bearingSH(false);
 }
 
 if (showSpoolRoller)
@@ -248,8 +272,15 @@ if (showttt)
 //    translate([0,0,0]) cube([10,10,10]);
 //    color("blue") extend_x(0.5) translate([0,-10,0]) cube([10,10,10]);
 //    translate([0,-20,0]) cube([10.5,10,10]);
-    threadRod();
-    bb_608();
+    //threadRod(86);
+    //bb_608();
+    //handle();
+    //stl_colour(pp1_colour) render() bearingSH_M8_stl();
+
+    //screw(M3_cap_screw, 10);
+    //insert([ "voron",   4.0, 4.6, 4.0, 3,   3.65, 1.0, 4.6, 4.0 ]);
+    //insert([ "F1BM3",   5.8, 4.6, 4.0, 3,   3.65, 1.6, 4.4, 3.9 ]);
+    handle_part2_assembly();
 }
 
 if (showSpacer)
@@ -262,6 +293,43 @@ if (showVisse)
     nut_M8_stl();
 }
 
+if (showMainBody)
+{
+    mainBodyNoShoulder_stl();
+}
+
+//
+//! 1. Install the insert on the handle.
+//
+module handle_part1_assembly()
+assembly("handle_part1")
+{
+    color("red") handle();
+    explode([0,30,0], offset=[0,0,0]) {
+        translate([0,+6.6,0]) rotate([-90,0,0])
+            insert([ "voron",   4.0, 4.9, 4.0, 3,   3.65, 1.0, 4.6, 4.0 ]);
+    }
+}
+
+//
+//! 1. Remove the support.
+//! 2. Install the handle with a M3x10 screw ("[a]_Handle_x.stl", piece from the original design, not included here).
+//
+module handle_part2_assembly()
+assembly("handle_part2")
+{
+    $explode=false;
+    stl_colour(pp1_colour) render() bearingSH_M8_stl();
+    explode([30,0,0], offset=[-10,0,17.9]) {
+        translate([-21.5,0,17.9])
+            handle_part1_assembly();
+    }
+    explode([0,-30,0], offset=[-21.5,0,17.9]) {
+        translate([-21.5,-3.6,17.9]) rotate([90,0,0]) screw(M3_cap_screw, 10);
+    }
+}
+
+
 //
 //! 1. Insert the bearing 608 at both end of the spool cylinder
 //
@@ -269,8 +337,8 @@ module roll_assembly() pose([ 0, 0.00, 0 ], [1.36,-34.92,-18.49], exploded=true)
 assembly("roll")
 {
     stl_colour(pp2_colour) rotate([0,90,0]) roller_stl();
-    explode([-20,0,0], true) {
-        translate([5,0,0]) bb_608();
+    explode([-35,0,0], true) {
+        translate([5+10,0,0]) bb_608();
     }
     explode([50,0,0], offset = [65+15,0,0] ) {
         translate([65,0,0]) bb_608();
@@ -278,14 +346,11 @@ assembly("roll")
 }
 
 //
-//! 1. Remove the support.
-//! 2. Screw the threaded rod in the bearingSH. Don't overthight.
-//! 3. Insert a 4 mm spacer
-//! 4. Insert the roller
-//! 5. Insert a 3 mm spacer. You might need to use a thinner or a thicker spaced such that the nut end up flush with the roller.
-//! 6. Screw the nut. Don't overthight. Make sure the roller turn freely.
-//! 7. You can screw the handle (piece from the original design, not included here).
-//! 8. You're done.
+//! 1. Screw the threaded rod in the bearingSH. Don't overthight.
+//! 2. Insert a 1 mm spacer
+//! 3. Insert the roller
+//! 4. Insert a 3 mm spacer. You might need to use a thinner or a thicker spacer such that the nut end up flush with the roller.
+//! 5. Screw the nut. Don't overthight. Make sure the roller turn freely.
 //
 module main_assembly() 
 assembly("main", big=true) {
@@ -293,33 +358,45 @@ assembly("main", big=true) {
     //rotate([0,0,0]) roll_assembly();
     hidden()
     {
+        // Include these stl in the BOM
         stl_colour(pp1_colour) render() bearingSH_5_16_stl();
         stl_colour(pp2_colour) render() rotate([-30,0,0]) nut_5_16_stl();
+
+        optional_mainBody_assembly();
     }
 
-
-    stl_colour(pp1_colour) render() bearingSH_M8_stl();
-    //stl_colour(pp1_colour) bearingSH();
+    handle_part2_assembly();
 
     explode([10,0,0], explode_children=true) {
         translate([0,0])
-             stl_colour(pp2_colour) render() spacer4mm_stl();
+             stl_colour(pp2_colour) render() spacer1mm_stl();
     }
     explode([20+20,0,0], explode_children=true) {
-        translate([-10,0])
-            threadRod(95);
+        translate([-15,0])
+            threadRod(88);
     }
     explode([20+20+100,0,0], explode_children=true) {
-        translate([-1,0,0]) roll_assembly();
+        translate([-15+1,0,0]) roll_assembly();
     }
     explode([20+20+100+30,0,0], explode_children=true) {
-        translate([73,0])
+        translate([70-15+1,0])
              stl_colour(pp2_colour) render() spacer3mm_stl();
     }
     explode([20+20+100+20+20,0,0], offset=[100,0,0]) {
-        translate([73,0])
+        translate([74-15+1,0])
              stl_colour(pp2_colour) render() rotate([-30,0,0]) nut_M8_stl();
     }
+}
+
+//
+//! 1. This is an optional assembly
+//! 2. If you want to be able to remove the spool from the buffer by pulling the handler you have two choices:
+//! 3. If you're are modifying an existing buffer then you have to cut the shoulder.
+//! 4. If you're building a new buffer then you can print "mainBodyNoShoulder.stl". The shoulder has been removed on the stl.
+//
+module optional_mainBody_assembly()
+assembly("optional_mainBody",big=false){
+    render() mainBodyNoShoulder_stl();
 }
 
 
@@ -329,6 +406,7 @@ if (showAssembly)
         //render() bearingSH();
         //nut_M8_stl();
         main_assembly();
+        //handle_part1_assembly();
     else
         bearingSH_M8_stl();
 }

@@ -1,4 +1,5 @@
-tmp/main_assembly.png: \
+tmp/optional_mainBody_assembly.png: \
+	/home/rejeantremblay/Documents/github/EnragedRabbitProject/Carrot_Patch/STLs/Main_Body.stl \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/fillet.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/maths.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/washer.scad \
@@ -16,17 +17,16 @@ tmp/main_assembly.png: \
 	tmp/png.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/thread.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/rod.scad \
+	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/rounded_cylinder.scad \
+	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/insert.scad \
+	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/sweep.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/core/bom.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/ball_bearing.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/ball_bearings.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/core/sphere.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/inserts.scad \
-	/home/rejeantremblay/Documents/github/EnragedRabbitProject/Carrot_Patch/STLs/Spool_Arm.stl \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/core/polyholes.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/core/rounded_rectangle.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/core/teardrops.scad \
 	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/screw.scad \
-	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/core/clip.scad \
-	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/sweep.scad \
-	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/rounded_cylinder.scad \
-	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/vitamins/insert.scad
+	/home/rejeantremblay/.local/share/OpenSCAD/libraries/NopSCADlib/utils/core/clip.scad

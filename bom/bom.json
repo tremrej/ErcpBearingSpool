@@ -20,16 +20,71 @@
         "routed": {}
     },
     {
+        "name": "handle_part1_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 1,
+        "assemblies": {},
+        "vitamins": {
+            "insert(voron): Heatfit insert M3 x 4mm": {
+                "count": 1
+            }
+        },
+        "printed": {},
+        "routed": {}
+    },
+    {
+        "name": "handle_part2_assembly",
+        "big": null,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 1,
+        "assemblies": {
+            "handle_part1_assembly": 1
+        },
+        "vitamins": {
+            "screw(M3_cap_screw, 10): Screw M3 cap x 10mm": {
+                "count": 1
+            }
+        },
+        "printed": {
+            "bearingSH_M8.stl": {
+                "count": 1,
+                "colour": "dimgrey"
+            }
+        },
+        "routed": {}
+    },
+    {
+        "name": "optional_mainBody_assembly",
+        "big": false,
+        "ngb": false,
+        "zoomed": 0,
+        "count": 1,
+        "assemblies": {},
+        "vitamins": {},
+        "printed": {
+            "mainBodyNoShoulder.stl": {
+                "count": 1,
+                "colour": "dimgrey"
+            }
+        },
+        "routed": {}
+    },
+    {
         "name": "main_assembly",
         "big": true,
         "ngb": false,
         "zoomed": 0,
         "count": 1,
         "assemblies": {
+            "optional_mainBody_assembly": 1,
+            "handle_part2_assembly": 1,
             "roll_assembly": 1
         },
         "vitamins": {
-            "studding(8, 95): Threaded rod M8 x 95mm": {
+            "studding(8, 88): Threaded rod M8 x 88mm": {
                 "count": 1
             }
         },
@@ -42,11 +97,7 @@
                 "count": 1,
                 "colour": "red"
             },
-            "bearingSH_M8.stl": {
-                "count": 1,
-                "colour": "dimgrey"
-            },
-            "spacer4mm.stl": {
+            "spacer1mm.stl": {
                 "count": 1,
                 "colour": "red"
             },
